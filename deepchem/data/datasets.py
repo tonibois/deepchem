@@ -888,7 +888,7 @@ class NumpyDataset(Dataset):
         for i in order:
           yield (self._X[i], self._y[i], self._w[i], self._ids[i])
 
-    class TorchDataset(torch.utils.data.IterableDataset):
+    class TorchDataset(torch.utils.data.IterableDataset):  # type: ignore
 
       def __iter__(self):
         return iterate()
@@ -1409,7 +1409,7 @@ class DiskDataset(Dataset):
           for i in range(X.shape[0]):
             yield (X[i], y[i], w[i], ids[i])
 
-    class TorchDataset(torch.utils.data.IterableDataset):
+    class TorchDataset(torch.utils.data.IterableDataset):  # type: ignore
 
       def __iter__(self):
         return iterate()
@@ -2164,7 +2164,7 @@ class ImageDataset(Dataset):
           yield (get_image(self._X, i), get_image(self._y, i), self._w[i],
                  self._ids[i])
 
-    class TorchDataset(torch.utils.data.IterableDataset):
+    class TorchDataset(torch.utils.data.IterableDataset):  # type: ignore
 
       def __iter__(self):
         return iterate()

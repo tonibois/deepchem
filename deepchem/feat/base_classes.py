@@ -255,12 +255,8 @@ class StructureFeaturizer(Featurizer):
 
     """
 
-    # Special case handling of single crystal structure
-    if not isinstance(structures, Iterable):
-      structures = [structures]
-    else:
-      # Convert iterables to list
-      structures = list(structures)
+    # Convert iterables to list
+    structures = list(structures)
 
     try:
       from pymatgen import Structure
@@ -282,7 +278,7 @@ class StructureFeaturizer(Featurizer):
     features = np.asarray(features)
     return features
 
-  def _featurize(self, structure: "pymatgen.Structure"):
+  def _featurize(self, structure: "pymatgen.Structure"):  # type: ignore
     """Calculate features for a single crystal structure.
 
     Parameters
@@ -350,12 +346,8 @@ class CompositionFeaturizer(Featurizer):
 
     """
 
-    # Special case handling of single crystal composition
-    if not isinstance(compositions, Iterable):
-      compositions = [compositions]
-    else:
-      # Convert iterables to list
-      compositions = list(compositions)
+    # Convert iterables to list
+    compositions = list(compositions)
 
     try:
       from pymatgen import Composition
@@ -377,7 +369,7 @@ class CompositionFeaturizer(Featurizer):
     features = np.asarray(features)
     return features
 
-  def _featurize(self, composition: "pymatgen.Composition"):
+  def _featurize(self, composition: "pymatgen.Composition"):  # type: ignore
     """Calculate features for a single crystal composition.
 
     Parameters
